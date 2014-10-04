@@ -1,4 +1,4 @@
-Net-DNS_A version 0.01
+Net-DNS_A version 0.02
 ======================
 
 Net::DNS_A - First attempt at asynchronous dns resoloving with gettaddrinfo_a

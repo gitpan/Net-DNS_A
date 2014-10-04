@@ -8,7 +8,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 4;
+use Test::More tests => 7;
 BEGIN { use_ok('ExtUtils::testlib') };
 BEGIN { use_ok('Net::DNS_A') };
 
@@ -17,8 +17,14 @@ BEGIN { use_ok('Net::DNS_A') };
 # Insert your test code below, the Test::More module is use()ed here so read
 # its man page ( perldoc Test::More ) for help writing this test script.
 
+my @output = Net::DNS_A::retrieve();
+ok(0 == $output[0], "Please call lookup()");
 
 ok(Net::DNS_A::lookup("google.com"), 'lookup("google.com")');
+ok(Net::DNS_A::lookup("google.com"), 'Please call retrieve()');
 sleep(1);
-my @output = Net::DNS_A::retrieve();
+@output = Net::DNS_A::retrieve();
 ok($output[0], "retrieve() :: $output[1] :: $output[2])");
+
+@output = Net::DNS_A::retrieve();
+ok(0 == $output[0], "Please call lookup()");
